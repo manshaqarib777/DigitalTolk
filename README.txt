@@ -43,3 +43,12 @@ OR
 Thank you!
 
 
+////////////////////////
+
+I have fixed all these issues here. You can check distanceFeed() method in BookingController and getAll() method in BookingRepository()
+
+Breakage of single responsibility principle and makes the method harder to understand and maintain. Better to separate these concerns into different methods or services.
+there are several variables being checked and assigned default values. replace it with coalescing operator (e.g., $distance = $data['distance'] ?? "";).
+replace string literals to constants or configuration values , such as $request->__authenticatedUser->user_type == env('ADMIN_ROLE_ID').
+Error handling and validation are lacking.
+The entire $request object is passed to the repository. It would be better to pass only the required data or validated data
